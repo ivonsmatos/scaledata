@@ -21,14 +21,18 @@ const Contact: React.FC = () => {
         body: JSON.stringify({
           ...formData,
           _subject: `Novo contato via site (Componente): ${formData.name}`,
-          _template: 'table'
+          _template: 'table',
+          _captcha: "false"
         })
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         alert('Obrigado pela mensagem! Entraremos em contato em breve.');
         setFormData({ name: '', email: '', message: '' });
       } else {
+        console.error('Erro FormSubmit:', data);
         alert('Houve um erro ao enviar. Por favor, tente novamente ou envie um email direto para contato@scaledata.com.br');
       }
     } catch (error) {
