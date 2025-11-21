@@ -9,12 +9,33 @@ const Contact: React.FC = () => {
     email: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder for EmailJS or Netlify Forms integration
-    console.log('Form submitted:', formData);
-    alert('Obrigado pela mensagem! Entraremos em contato em breve.');
-    setFormData({ name: '', company: '', challenge: '', email: '' });
+    
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/contato@scaledata.com.br", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `Novo contato via site: ${formData.name}`,
+          _template: 'table'
+        })
+      });
+
+      if (response.ok) {
+        alert('Obrigado pela mensagem! Entraremos em contato em breve.');
+        setFormData({ name: '', company: '', challenge: '', email: '' });
+      } else {
+        alert('Houve um erro ao enviar. Por favor, tente novamente ou envie um email direto para contato@scaledata.com.br');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      alert('Houve um erro ao enviar. Por favor, tente novamente ou envie um email direto para contato@scaledata.com.br');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
