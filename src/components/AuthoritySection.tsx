@@ -22,7 +22,7 @@ const BentoItem: React.FC<BentoItemProps> = ({ children, className = '', delay =
     whileInView={{ opacity: 1, scale: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay, type: "spring", bounce: 0.3 }}
-    className={`bg-white p-8 rounded-none shadow-xl border border-brand-dark/5 relative overflow-hidden group hover:border-brand-primary/50 transition-colors duration-500 ${className}`}
+    className={`p-8 rounded-none shadow-xl border border-brand-dark/5 relative overflow-hidden group hover:border-brand-primary/50 transition-colors duration-500 ${className}`}
   >
     {children}
     {/* Efeito de brilho suave ao passar o mouse */}
@@ -71,7 +71,7 @@ const AuthoritySection: React.FC = () => {
           </BentoItem>
 
           {/* BLOCO 2: Tempo de Mercado (Destaque Visual) */}
-          <BentoItem className="md:col-span-1 md:row-span-1 flex flex-col justify-center items-center text-center" delay={0.1}>
+          <BentoItem className="md:col-span-1 md:row-span-1 flex flex-col justify-center items-center text-center bg-white" delay={0.1}>
             <Calendar className="text-brand-primary mb-2" size={32} />
             <span className="text-sm font-bold text-brand-dark/60 uppercase tracking-wider">Desde</span>
             <span className="text-6xl font-black text-brand-dark tracking-tighter">2010</span>
@@ -89,7 +89,7 @@ const AuthoritySection: React.FC = () => {
           </BentoItem>
 
           {/* BLOCO 4: Métricas de Sucesso (Contador) */}
-          <BentoItem className="md:col-span-1 md:row-span-1" delay={0.3}>
+          <BentoItem className="md:col-span-1 md:row-span-1 bg-white" delay={0.3}>
             <div className="flex flex-col h-full justify-center">
               <span className="text-5xl font-black text-brand-primary mb-2">
                 +<CountUp end={150} duration={3} />
