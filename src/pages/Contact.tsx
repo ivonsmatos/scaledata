@@ -1,54 +1,7 @@
-import React, { useState } from 'react';
-import { Mail, Phone, Send } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    challenge: '',
-    email: ''
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/contato@scaledata.com.br", {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          ...formData,
-          _subject: `Novo contato via site: ${formData.name}`,
-          _template: 'table',
-          _captcha: "false"
-        })
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert('Obrigado pela mensagem! Entraremos em contato em breve.');
-        setFormData({ name: '', company: '', challenge: '', email: '' });
-      } else {
-        console.error('Erro FormSubmit:', data);
-        alert('Houve um erro ao enviar. Por favor, tente novamente ou envie um email direto para contato@scaledata.com.br');
-      }
-    } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
-      alert('Houve um erro ao enviar. Por favor, tente novamente ou envie um email direto para contato@scaledata.com.br');
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <div className="min-h-screen pt-20 flex flex-col">
       <div className="flex-grow grid grid-cols-1 lg:grid-cols-2">
@@ -81,71 +34,14 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* Right: Form */}
+        {/* Right: Message */}
         <div className="bg-brand-bg p-12 lg:p-24 flex flex-col justify-center">
-          <form onSubmit={handleSubmit} className="space-y-8 max-w-lg w-full mx-auto">
-            <div>
-              <label htmlFor="name" className="block text-xs font-black text-brand-dark mb-2 uppercase tracking-widest">Nome</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full bg-white border-b-2 border-brand-dark/10 p-4 focus:border-brand-primary outline-none transition-colors font-medium text-brand-dark placeholder-brand-dark/30"
-                placeholder="Seu nome completo"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-xs font-black text-brand-dark mb-2 uppercase tracking-widest">Email Corporativo</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full bg-white border-b-2 border-brand-dark/10 p-4 focus:border-brand-primary outline-none transition-colors font-medium text-brand-dark placeholder-brand-dark/30"
-                placeholder="seu@email.com"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="company" className="block text-xs font-black text-brand-dark mb-2 uppercase tracking-widest">Empresa</label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full bg-white border-b-2 border-brand-dark/10 p-4 focus:border-brand-primary outline-none transition-colors font-medium text-brand-dark placeholder-brand-dark/30"
-                placeholder="Nome da sua empresa"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="challenge" className="block text-xs font-black text-brand-dark mb-2 uppercase tracking-widest">Desafio</label>
-              <textarea
-                id="challenge"
-                name="challenge"
-                value={formData.challenge}
-                onChange={handleChange}
-                rows={4}
-                className="w-full bg-white border-b-2 border-brand-dark/10 p-4 focus:border-brand-primary outline-none transition-colors font-medium text-brand-dark placeholder-brand-dark/30 resize-none"
-                placeholder="Descreva brevemente seu projeto..."
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-brand-primary text-white font-black py-5 hover:bg-brand-alert transition-colors uppercase tracking-widest flex items-center justify-center gap-2 group"
-            >
-              Iniciar Projeto
-              <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </form>
+          <p className="text-lg text-brand-dark mb-8">
+            Entre em contato conosco pelo WhatsApp!
+          </p>
+          <p className="text-sm text-brand-dark/70">
+            Ou envie um email para <strong>contato@scaledata.com.br</strong>
+          </p>
         </div>
       </div>
     </div>

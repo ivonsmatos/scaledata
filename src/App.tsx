@@ -8,6 +8,7 @@ import SolutionsPage from './pages/Solutions';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <FloatingWhatsAppButton />
         </div>
       </Router>
     </HelmetProvider>
