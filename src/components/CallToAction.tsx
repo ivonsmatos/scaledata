@@ -16,9 +16,9 @@ const CallToAction: React.FC<CallToActionProps> = ({
   title = "Sua próxima fase de crescimento começa aqui.",
   subtitle = "Transforme dados em decisões e tecnologia em resultados.",
   primaryBtnText = "Agendar Consultoria Técnica",
-  primaryBtnLink = "/contact",
+  primaryBtnLink = "/contato",
   secondaryBtnText = "Conhecer Casos de Sucesso",
-  secondaryBtnLink = "/solutions"
+  secondaryBtnLink = "/solucoes"
 }) => {
   return (
     <section className="py-20 bg-deep text-white relative overflow-hidden">

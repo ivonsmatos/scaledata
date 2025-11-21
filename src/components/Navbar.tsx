@@ -8,10 +8,10 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   const links = [
-    { name: 'Home', href: '/' },
-    { name: 'Soluções', href: '/solutions' },
-    { name: 'Sobre', href: '/about' },
-    { name: 'Contato', href: '/contact' },
+    { name: 'Início', href: '/' },
+    { name: 'Soluções', href: '/solucoes' },
+    { name: 'Sobre', href: '/sobre' },
+    { name: 'Contato', href: '/contato' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
               <Link
-                to="/contact"
+                to="/contato"
                 className="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-deep transition-colors"
               >
                 Agendar Consultoria
@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
               <Link
-                to="/contact"
+                to="/contato"
                 onClick={() => setIsOpen(false)}
                 className="bg-primary text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-deep mt-4"
               >

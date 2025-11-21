@@ -33,14 +33,14 @@ const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
             <Link 
-              to="/contact" 
+              to="/contato" 
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-deep transition-colors"
             >
               Agendar Consultoria Técnica
               <ArrowRight className="ml-2 -mr-1 h-5 w-5" />
             </Link>
             <Link 
-              to="/solutions" 
+              to="/solucoes" 
               className="inline-flex items-center justify-center px-8 py-3 border border-soft text-base font-medium rounded-md text-deep hover:bg-soft/10 transition-colors"
             >
               Conhecer Casos de Sucesso

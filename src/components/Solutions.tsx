@@ -10,7 +10,7 @@ const services = [
     icon: Layout,
     pain: 'Sites lentos, complexos e sem estratégia perdem clientes todos os dias.',
     gain: 'Aplicações React otimizadas para Core Web Vitals. UX focado em conversão e SEO técnico nativo.',
-    link: '/solutions#web'
+    link: '/solucoes#web'
   },
   {
     id: 'chatbots',
@@ -18,7 +18,7 @@ const services = [
     icon: MessageSquareCode,
     pain: 'Sua equipe perde horas respondendo as mesmas perguntas e o cliente desiste pela demora.',
     gain: 'Agentes inteligentes 24/7 integrados ao seu CRM. Redução do CAC e atendimento imediato.',
-    link: '/solutions#chatbots'
+    link: '/solucoes#chatbots'
   },
   {
     id: 'data',
@@ -26,7 +26,7 @@ const services = [
     icon: Database,
     pain: "Decisões estratégicas baseadas em 'achismos' e planilhas desconexas.",
     gain: 'Data Lakes estruturados e Dashboards de BI. Transformamos terabytes de dados em lucro líquido.',
-    link: '/solutions#data'
+    link: '/solucoes#data'
   }
 ];
 
