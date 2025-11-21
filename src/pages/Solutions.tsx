@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, MessageSquare, Database, CheckCircle, XCircle } from 'lucide-react';
+import { Globe, MessageSquare, Database, CheckCircle2, AlertTriangle, ArrowRight } from 'lucide-react';
 import CallToAction from '../components/CallToAction';
 
 const solutions = [
   {
     id: 'web',
-    title: 'Desenvolvimento Web de Alta Performance',
+    title: 'Desenvolvimento Web Enterprise',
     icon: Globe,
     pain: 'Sites lentos e complexos perdem clientes.',
     gain: 'Aplicações React/Vite otimizadas para Core Web Vitals. UX focado em conversão. SEO técnico nativo.',
@@ -19,7 +19,7 @@ const solutions = [
   },
   {
     id: 'chatbots',
-    title: 'Automação e Chatbots Humanizados',
+    title: 'Automação e Chatbots',
     icon: MessageSquare,
     pain: 'Perder vendas por demora no atendimento.',
     gain: 'Agentes inteligentes que operam 24/7, integrados ao seu CRM, reduzindo o CAC e aumentando a retenção.',
@@ -32,7 +32,7 @@ const solutions = [
   },
   {
     id: 'data',
-    title: 'Engenharia de Dados & Analytics',
+    title: 'Engenharia de Dados & BI',
     icon: Database,
     pain: "Decisões baseadas em 'achismos'.",
     gain: 'Estruturação de Data Lakes e Dashboards de BI. Transforme terabytes de dados em estratégia de lucro.',
@@ -47,23 +47,23 @@ const solutions = [
 
 const Solutions: React.FC = () => {
   return (
-    <div className="pt-20">
-      <section className="py-20 bg-background">
+    <div className="pt-20 bg-brand-bg min-h-screen">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-24">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl font-bold text-deep mb-6"
+              className="text-5xl md:text-6xl font-black text-brand-dark mb-8 tracking-tighter"
             >
-              Tecnologia não é o fim, é o meio.
+              TECNOLOGIA É O MEIO.
             </motion.h1>
-            <p className="text-xl text-dark/70 max-w-3xl mx-auto">
+            <p className="text-2xl text-brand-dark/60 max-w-3xl mx-auto font-medium">
               Nossas três frentes de atuação para resolver problemas reais de negócio.
             </p>
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-24">
             {solutions.map((solution) => (
               <motion.div 
                 key={solution.id}
@@ -71,46 +71,58 @@ const Solutions: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="bg-white rounded-2xl shadow-sm border border-soft/20 overflow-hidden"
+                className="bg-white shadow-2xl border-t-8 border-brand-primary overflow-hidden group"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                  <div className="lg:col-span-4 bg-deep p-10 text-white flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
-                    <div className="p-4 bg-white/10 rounded-xl mb-6">
-                      <solution.icon size={48} />
+                  {/* Left Column: Identity */}
+                  <div className="lg:col-span-4 bg-brand-dark p-12 text-white flex flex-col justify-between relative overflow-hidden">
+                    <div className="relative z-10">
+                      <div className="p-4 bg-white/5 w-fit mb-8 border border-white/10">
+                        <solution.icon size={48} className="text-brand-primary" />
+                      </div>
+                      <h2 className="text-3xl font-black mb-6 uppercase tracking-tight leading-none">{solution.title}</h2>
+                      <div className="w-20 h-2 bg-brand-primary mb-6"></div>
                     </div>
-                    <h2 className="text-2xl font-bold mb-4">{solution.title}</h2>
-                    <div className="w-12 h-1 bg-primary mb-6"></div>
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
                   </div>
                   
-                  <div className="lg:col-span-8 p-10">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
-                      <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-                        <div className="flex items-center mb-3 text-red-700 font-bold">
-                          <XCircle className="mr-2" size={20} />
+                  {/* Right Column: Content */}
+                  <div className="lg:col-span-8 p-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                      {/* Problem */}
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3 text-brand-alert font-bold uppercase tracking-wider text-sm">
+                          <AlertTriangle size={20} />
                           O Problema
                         </div>
-                        <p className="text-red-900/80 font-medium text-lg">"{solution.pain}"</p>
+                        <p className="text-2xl font-bold text-brand-dark/80 italic leading-tight">
+                          "{solution.pain}"
+                        </p>
                       </div>
                       
-                      <div className="bg-green-50 p-6 rounded-xl border border-green-100">
-                        <div className="flex items-center mb-3 text-green-700 font-bold">
-                          <CheckCircle className="mr-2" size={20} />
+                      {/* Solution */}
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3 text-brand-secondary font-bold uppercase tracking-wider text-sm">
+                          <CheckCircle2 size={20} />
                           A Solução
                         </div>
-                        <p className="text-green-900/80 font-medium text-lg">{solution.gain}</p>
+                        <p className="text-xl font-medium text-brand-dark leading-relaxed">
+                          {solution.gain}
+                        </p>
                       </div>
                     </div>
-                    
-                    <div>
-                      <h3 className="font-bold text-deep mb-4">O que entregamos:</h3>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                    <div className="border-t border-brand-dark/10 pt-10">
+                      <h3 className="text-sm font-black text-brand-dark uppercase tracking-widest mb-8">O que entregamos:</h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
                         {solution.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-center text-dark/80">
-                            <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                            {detail}
-                          </li>
+                          <div key={idx} className="flex items-start gap-3 group/item">
+                            <ArrowRight className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5 group-hover/item:translate-x-1 transition-transform" />
+                            <span className="text-brand-dark/80 font-medium">{detail}</span>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -119,12 +131,8 @@ const Solutions: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      <CallToAction 
-        title="Identificou o gargalo do seu negócio?"
-        subtitle="Vamos conversar sobre como nossa tecnologia pode resolver isso."
-        primaryBtnText="Falar com Especialista"
-      />
+
+      <CallToAction />
     </div>
   );
 };
