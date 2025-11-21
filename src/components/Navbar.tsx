@@ -17,11 +17,14 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-soft/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-bg/80 backdrop-blur-md border-b border-brand-dark/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-bold text-deep">Scaledata</Link>
+            <Link to="/" className="text-2xl font-black tracking-tighter">
+              <span className="text-brand-dark">SCALE</span>
+              <span className="text-brand-primary">DATA</span>
+            </Link>
           </div>
           
           {/* Desktop Menu */}
@@ -32,17 +35,17 @@ const Navbar: React.FC = () => {
                   key={link.name}
                   to={link.href}
                   className={`${
-                    isActive(link.href) ? 'text-primary font-bold' : 'text-deep hover:text-primary'
-                  } px-3 py-2 rounded-md text-sm font-medium transition-colors`}
+                    isActive(link.href) ? 'text-brand-primary font-bold' : 'text-brand-dark hover:text-brand-primary'
+                  } px-3 py-2 rounded-md text-sm font-bold tracking-tight transition-colors`}
                 >
                   {link.name}
                 </Link>
               ))}
               <Link
                 to="/contato"
-                className="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-deep transition-colors"
+                className="bg-brand-primary text-white px-6 py-2.5 rounded-none text-sm font-bold hover:bg-brand-alert transition-colors"
               >
-                Agendar Consultoria
+                INICIAR PROJETO
               </Link>
             </div>
           </div>
@@ -51,7 +54,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-deep hover:text-primary p-2"
+              className="text-brand-dark hover:text-brand-primary p-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -66,7 +69,7 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-soft/20 overflow-hidden"
+            className="md:hidden bg-brand-bg border-b border-brand-dark/5 overflow-hidden"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {links.map((link) => (
@@ -75,8 +78,8 @@ const Navbar: React.FC = () => {
                   to={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`${
-                    isActive(link.href) ? 'text-primary font-bold' : 'text-deep hover:text-primary'
-                  } block px-3 py-2 rounded-md text-base font-medium`}
+                    isActive(link.href) ? 'text-brand-primary font-bold' : 'text-brand-dark hover:text-brand-primary'
+                  } block px-3 py-2 rounded-md text-base font-bold`}
                 >
                   {link.name}
                 </Link>
@@ -84,9 +87,9 @@ const Navbar: React.FC = () => {
               <Link
                 to="/contato"
                 onClick={() => setIsOpen(false)}
-                className="bg-primary text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-deep mt-4"
+                className="bg-brand-primary text-white block px-3 py-2 rounded-none text-base font-bold hover:bg-brand-alert mt-4 text-center"
               >
-                Agendar Consultoria
+                INICIAR PROJETO
               </Link>
             </div>
           </motion.div>

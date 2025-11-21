@@ -7,14 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        deep: '#094C7E',
-        dark: '#0B3B59',
-        primary: '#165F8C',
-        soft: '#80A7BF',
-        background: '#F2F2F2',
+        brand: {
+          primary: '#B31A23',   // Deep Red - Main Action/Logo
+          secondary: '#395228', // Moss Green - Growth/Data
+          accent: '#FF7420',    // Vibrant Orange - Highlights
+          alert: '#DA321C',     // Vivid Red - Hover/Urgency
+          dark: '#090909',      // Black - Text/Footer/Solids
+          bg: '#F3F3F3',        // Light Gray - Background
+        }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Using Inter as a safe default for minimalist design
+        sans: ['Inter', 'sans-serif'],
       },
     },
   },

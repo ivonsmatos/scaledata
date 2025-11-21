@@ -1,85 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart2, MessageSquare, Globe } from 'lucide-react';
+import { ArrowRight, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-deep tracking-tight mb-6"
-          >
-            Inteligência de Dados e Tecnologia Web para Escalar Negócios na América Latina.
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-dark/80 mb-10 max-w-2xl mx-auto"
-          >
-            Desde 2010, transformamos complexidade digital em interfaces limpas, automação inteligente e decisões baseadas em dados.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col sm:flex-row justify-center gap-4"
-          >
-            <Link 
-              to="/contato" 
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-deep transition-colors"
-            >
-              Agendar Consultoria Técnica
-              <ArrowRight className="ml-2 -mr-1 h-5 w-5" />
-            </Link>
-            <Link 
-              to="/solucoes" 
-              className="inline-flex items-center justify-center px-8 py-3 border border-soft text-base font-medium rounded-md text-deep hover:bg-soft/10 transition-colors"
-            >
-              Conhecer Casos de Sucesso
-            </Link>
-          </motion.div>
-        </div>
+    <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop" 
+          alt="Data Network" 
+          className="w-full h-full object-cover"
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/95 to-brand-bg/20"></div>
       </div>
 
-      {/* Minimalist Background Graphics */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20">
-        <motion.div 
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 5, 0]
-          }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-10 text-soft"
-        >
-          <Globe size={120} strokeWidth={1} />
-        </motion.div>
-        <motion.div 
-          animate={{ 
-            y: [0, 30, 0],
-            rotate: [0, -5, 0]
-          }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-10 text-primary"
-        >
-          <BarChart2 size={140} strokeWidth={1} />
-        </motion.div>
-        <motion.div 
-          animate={{ 
-            x: [0, 20, 0],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-1/4 text-deep"
-        >
-          <MessageSquare size={80} strokeWidth={1} />
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-3xl">
+            <motion.h1 
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-6xl sm:text-7xl lg:text-8xl font-black text-brand-dark tracking-tighter mb-6 leading-none"
+            >
+              DADOS<br/>SÃO<br/><span className="text-brand-primary">PODER.</span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="text-xl sm:text-2xl text-brand-dark/80 mb-10 font-medium max-w-lg"
+            >
+              Transformamos complexidade em autoridade. Consultoria de dados e desenvolvimento web enterprise para líderes na América Latina.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Link 
+                to="/contato" 
+                className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-none text-white bg-brand-primary hover:bg-brand-alert transition-colors"
+              >
+                INICIAR PROJETO
+                <ArrowRight className="ml-2 -mr-1 h-5 w-5" />
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Floating UI Element */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+            className="hidden lg:block relative"
+          >
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-xl shadow-2xl max-w-xs">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-white font-bold text-lg">Performance</span>
+                <TrendingUp className="text-brand-accent" size={24} />
+              </div>
+              <div className="text-5xl font-black text-white mb-2">
+                +240%
+              </div>
+              <div className="text-white/70 text-sm font-medium">
+                ROI Médio em Projetos
+              </div>
+              
+              {/* Decorative chart lines */}
+              <div className="mt-6 flex items-end gap-2 h-16">
+                <div className="w-1/5 bg-brand-primary/40 h-[40%] rounded-t-sm"></div>
+                <div className="w-1/5 bg-brand-primary/60 h-[60%] rounded-t-sm"></div>
+                <div className="w-1/5 bg-brand-primary/80 h-[30%] rounded-t-sm"></div>
+                <div className="w-1/5 bg-brand-primary h-[80%] rounded-t-sm"></div>
+                <div className="w-1/5 bg-brand-accent h-[100%] rounded-t-sm"></div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

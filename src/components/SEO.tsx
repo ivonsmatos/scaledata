@@ -7,19 +7,30 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ 
-  title = 'Scaledata - Consultancy (Web, Chatbot, Data)', 
-  description = 'Expert consultancy in Web Development, Chatbots, and Data Solutions. Serving LATAM since 2010.' 
+  title = 'Scaledata | Consultoria de Dados e Desenvolvimento Web Enterprise', 
+  description = 'Transformamos complexidade em autoridade. Consultoria de dados, desenvolvimento web enterprise e automação para líderes na América Latina. Desde 2010.' 
 }) => {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Consultant",
+    "@type": "ProfessionalService",
     "name": "Scaledata",
+    "description": "Consultoria de Dados e Desenvolvimento Web Enterprise.",
     "foundingDate": "2010",
-    "areaServed": "LATAM",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "São Paulo",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.5505,
+      "longitude": -46.6333
+    },
+    "areaServed": ["BR", "AR", "CL", "CO"],
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+55-11-94190-6079",
-      "contactType": "customer service",
+      "contactType": "sales",
       "email": "contato@scaledata.com.br"
     }
   };

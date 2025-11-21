@@ -8,24 +8,24 @@ const services = [
     id: 'web',
     title: 'Desenvolvimento Web',
     icon: Layout,
-    pain: 'Sites lentos, complexos e sem estratégia perdem clientes todos os dias.',
-    gain: 'Aplicações React otimizadas para Core Web Vitals. UX focado em conversão e SEO técnico nativo.',
+    pain: 'Sites lentos e genéricos.',
+    gain: 'React Performance & SEO.',
     link: '/solucoes#web'
   },
   {
     id: 'chatbots',
-    title: 'Chatbots & Automação',
+    title: 'Chatbots & IA',
     icon: MessageSquareCode,
-    pain: 'Sua equipe perde horas respondendo as mesmas perguntas e o cliente desiste pela demora.',
-    gain: 'Agentes inteligentes 24/7 integrados ao seu CRM. Redução do CAC e atendimento imediato.',
+    pain: 'Atendimento gargalo.',
+    gain: 'Automação 24/7.',
     link: '/solucoes#chatbots'
   },
   {
     id: 'data',
-    title: 'Engenharia de Dados',
+    title: 'Business Intelligence',
     icon: Database,
-    pain: "Decisões estratégicas baseadas em 'achismos' e planilhas desconexas.",
-    gain: 'Data Lakes estruturados e Dashboards de BI. Transformamos terabytes de dados em lucro líquido.',
+    pain: 'Gestão por "achismo".',
+    gain: 'Decisões Data-Driven.',
     link: '/solucoes#data'
   }
 ];
@@ -54,26 +54,26 @@ const itemVariants = {
 
 const Solutions: React.FC = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-24 bg-brand-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl font-bold text-deep sm:text-4xl"
+            className="text-4xl font-black text-brand-dark sm:text-5xl tracking-tight"
           >
-            Soluções que resolvem problemas reais
+            SOLUÇÕES
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-4 text-xl text-dark/70 max-w-2xl mx-auto"
+            className="mt-4 text-xl text-brand-dark/60 max-w-2xl mx-auto font-medium"
           >
-            Tecnologia aplicada para eliminar gargalos e acelerar o crescimento.
+            Eliminamos a ineficiência através da tecnologia.
           </motion.p>
         </div>
 
@@ -89,48 +89,35 @@ const Solutions: React.FC = () => {
               key={service.id}
               variants={itemVariants}
               whileHover={{ y: -8 }}
-              className="bg-white rounded-lg shadow-lg border-t-4 border-primary p-8 flex flex-col h-full transition-shadow duration-300 hover:shadow-2xl group"
+              className="bg-white rounded-none shadow-xl border-t-8 border-brand-primary p-8 flex flex-col h-full transition-all duration-300 hover:shadow-2xl group"
             >
               {/* Header */}
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-background rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                  <service.icon className="text-primary w-8 h-8" />
+              <div className="mb-8">
+                <div className="w-16 h-16 bg-brand-bg rounded-none flex items-center justify-center mb-6 group-hover:bg-brand-primary/10 transition-colors">
+                  <service.icon className="text-brand-primary w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-deep">{service.title}</h3>
+                <h3 className="text-2xl font-black text-brand-dark uppercase tracking-tight">{service.title}</h3>
               </div>
 
-              {/* Pain Section */}
-              <div className="mb-6 pb-6 border-b border-gray-100">
-                <div className="flex items-center mb-2 text-soft text-xs font-bold uppercase tracking-wider">
-                  <AlertCircle size={14} className="mr-2" />
-                  O Desafio Atual
+              {/* Pain vs Gain */}
+              <div className="space-y-6 mb-8 flex-grow border-t border-brand-dark/5 pt-6">
+                <div className="flex items-start gap-3 text-brand-dark/50 italic">
+                  <AlertCircle className="w-6 h-6 flex-shrink-0 mt-0.5 text-brand-alert" />
+                  <p className="text-lg">"{service.pain}"</p>
                 </div>
-                <p className="text-gray-500 italic text-sm leading-relaxed">
-                  "{service.pain}"
-                </p>
+                <div className="flex items-start gap-3 text-brand-dark font-bold">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5 text-brand-secondary" />
+                  <p className="text-lg">{service.gain}</p>
+                </div>
               </div>
 
-              {/* Gain Section */}
-              <div className="mb-8 flex-grow">
-                <div className="flex items-center mb-2 text-primary text-xs font-bold uppercase tracking-wider">
-                  <CheckCircle2 size={14} className="mr-2" />
-                  Nossa Entrega
-                </div>
-                <p className="text-dark font-medium leading-relaxed">
-                  {service.gain}
-                </p>
-              </div>
-
-              {/* Footer Action */}
-              <div className="mt-auto">
-                <Link 
-                  to={service.link}
-                  className="inline-flex items-center text-primary font-semibold group-hover:text-deep transition-colors"
-                >
-                  Saiba mais
-                  <ArrowRight className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
+              {/* CTA */}
+              <Link 
+                to={service.link}
+                className="inline-flex items-center text-brand-primary font-bold hover:text-brand-alert transition-colors group-hover:translate-x-2 duration-300"
+              >
+                SAIBA MAIS <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
             </motion.div>
           ))}
         </motion.div>

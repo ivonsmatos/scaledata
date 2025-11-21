@@ -14,7 +14,7 @@ function App() {
     <HelmetProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen bg-background font-sans text-deep selection:bg-primary selection:text-white flex flex-col">
+        <div className="min-h-screen bg-brand-bg font-sans text-brand-dark selection:bg-brand-primary selection:text-white flex flex-col">
           <SEO />
           <Navbar />
           <main className="flex-grow">
